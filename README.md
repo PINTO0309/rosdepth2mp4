@@ -20,7 +20,7 @@ options:
   -i DEPTH_TOPIC_NAME, --depth_topic_name DEPTH_TOPIC_NAME
     Depth topic name.
     e.g.
-    Realsense D435i: /camera/aligned_depth_to_color/image_raw
+    Realsense D435: /camera/aligned_depth_to_color/image_raw
     ZED2i: /zed2i/zed_node/depth/depth_registered
   -o OUTPUT_MP4_FILE_NAME, --output_mp4_file_name OUTPUT_MP4_FILE_NAME
     Output MP4 file name.
