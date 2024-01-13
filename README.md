@@ -1,5 +1,8 @@
 # rosdepth2mp4
 A simple tool to record ROS2 Depth topics to MP4.
+
+[![Downloads](https://static.pepy.tech/personalized-badge/rosdepth2mp4?period=total&units=none&left_color=grey&right_color=brightgreen&left_text=Downloads)](https://pepy.tech/project/rosdepth2mp4)
+
 ## 1. Install ROS2
 ```bash
 DISTRO=humble
