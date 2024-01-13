@@ -50,7 +50,7 @@ options:
     e.g. output.mp4
   -de {16UC1,32FC1}, --depth_encoding_type {16UC1,32FC1}
     Depth encoding type.
-    e.g. Realsense D435i: 16UC1, ZED2i: 32FC1
+    e.g. Realsense D435: 16UC1, ZED2i: 32FC1
   -ct {COLORMAP_JET,COLORMAP_HSV,COLORMAP_HOT,RAW}, \
       --mp4_colormap_type {COLORMAP_JET,COLORMAP_HSV,COLORMAP_HOT,RAW}
     COLORMAP type.
