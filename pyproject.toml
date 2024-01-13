@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools", "setuptools_scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rosdepth2mp4"
+description = "A simple tool to record ROS2 Depth topics to MP4."
+authors = [{name="Katsuya Hyodo", email="rmsdh122@yahoo.co.jp"}]
+readme = "README.md"
+license = {file = "LICENSE"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+requires-python = ">=3.10"
+dependencies = [
+    "opencv-contrib-python>=4.9.0.80",
+]
+dynamic = ["version"]
+
+[project.urls]
+Homepage = "https://github.com/PINTO0309/rosdepth2mp4"
+
+[tool.setuptools.packages.find]
+exclude = ["build", "tests"]
+
+[tool.setuptools.dynamic]
+version = {attr = "rosdepth2mp4.version"}
+
+[tool.setuptools_scm]
+write_to = "rosdepth2mp4/_version.py"
+
+[project.scripts]
+rosdepth2mp4 = "rosdepth2mp4.main:main"

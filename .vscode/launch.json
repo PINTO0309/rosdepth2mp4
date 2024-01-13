@@ -1,0 +1,23 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "debug",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                // "-i", "/camera/aligned_depth_to_color/image_raw",
+                // "-de", "16UC1",
+                "-i", "/zed2i/zed_node/depth/depth_registered",
+                "-de", "32FC1",
+                // "-ct", "RAW",
+                "-ct", "COLORMAP_JET",
+                // "-ct", "COLORMAP_HSV",
+                // "-ct", "COLORMAP_HOT",
+            ]
+        }
+    ]
+}
