@@ -78,4 +78,4 @@ options:
 
   https://github.com/PINTO0309/rosdepth2mp4/assets/33194443/7bedd611-822c-4971-85c3-84fb9cdf33b5
 
-https://github.com/PINTO0309/rosdepth2mp4
+https://github.com/PINTO0309/rosimg2mp4
