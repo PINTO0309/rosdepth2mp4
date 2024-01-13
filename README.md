@@ -1,12 +1,12 @@
-# rosimg2mp4
-A simple tool to record ROS2 Image topics to MP4.
+# rosdepth2mp4
+A simple tool to record ROS2 Depth topics to MP4.
 
 ```
-pip install rosimg2mp4
+pip install rosdepth2mp4
 ```
 
 ```
-usage: rosimg2mp4 [-h]
+usage: rosdepth2mp4 [-h]
 [-i RGB_IMAGE_TOPIC_NAME]
 [-o OUTPUT_MP4_FILE_NAME]
 [-fs FRAME_SIZE FRAME_SIZE]
@@ -25,4 +25,4 @@ options:
     Video writer FPS.
 ```
 
-https://github.com/PINTO0309/mp42ros
+https://github.com/PINTO0309/rosdepth2mp4
