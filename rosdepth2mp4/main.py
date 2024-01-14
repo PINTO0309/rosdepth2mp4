@@ -23,15 +23,26 @@ COLORMAP_TYPES = {
     'RAW': None,
 }
 
+CODEC_TYPES = {
+    'mp4v': 'mov',
+    'MP4V': 'mp4',
+    'DIV3': 'avi',
+    'DIVX': 'avi',
+    'IYUV': 'avi',
+    'MJPG': 'avi',
+    'XVID': 'avi',
+}
+
 class ImageSaverNode(Node):
     def __init__(
         self,
         depth_topic_name: str,
         depth_encoding_type: str,
-        mp4_colormap_type: str,
+        colormap_type: str,
         frame_size: Tuple[int, int],
         video_writer_fps: float,
-        output_mp4_file_name: str,
+        output_file_name: str,
+        output_codec_type: str,
     ):
         super().__init__('image_saver')
         self.subscription = \
@@ -44,14 +55,14 @@ class ImageSaverNode(Node):
         self.bridge = CvBridge()
         self.video_writer = \
             cv2.VideoWriter(
-                filename=output_mp4_file_name \
-                    if output_mp4_file_name else f'output_{datetime.strftime(datetime.now(), "%Y%m%d%H%M%S")}.mp4',
-                fourcc=cv2.VideoWriter_fourcc(*'mp4v'),
+                filename=output_file_name \
+                    if output_file_name else f'output_{datetime.strftime(datetime.now(), "%Y%m%d%H%M%S")}.{CODEC_TYPES[output_codec_type]}',
+                fourcc=cv2.VideoWriter_fourcc(*output_codec_type),
                 fps=video_writer_fps,
                 frameSize=frame_size,
             )
         self.depth_encoding_type = depth_encoding_type
-        self.mp4_colormap_type = COLORMAP_TYPES[mp4_colormap_type]
+        self.colormap_type = COLORMAP_TYPES[colormap_type]
         self.frame_size = frame_size
 
     def depth_callback(self, depth_data: Image):
@@ -64,7 +75,7 @@ class ImageSaverNode(Node):
             self.depth_image_raw: np.ndarray = self.depth_image_raw * 1000.0 # mm
 
         # COLORMAP
-        if self.mp4_colormap_type is None:
+        if self.colormap_type is None:
             if self.depth_image_raw is not None:
                 if self.depth_encoding_type == '16UC1':
                     self.depth_image_raw = \
@@ -91,7 +102,7 @@ class ImageSaverNode(Node):
                     if self.depth_image_raw is not None else None
         else:
             self.depth_image_raw_color_map: np.ndarray = \
-                cv2.applyColorMap(cv2.convertScaleAbs(self.depth_image_raw, alpha=0.03), self.mp4_colormap_type) \
+                cv2.applyColorMap(cv2.convertScaleAbs(self.depth_image_raw, alpha=0.03), self.colormap_type) \
                     if self.depth_image_raw is not None else None
         # Resize
         if self.depth_image_raw_color_map is not None:
@@ -117,10 +128,18 @@ def main():
     )
     parser.add_argument(
         '-o',
-        '--output_mp4_file_name',
+        '--output_file_name',
         type=str,
         default='',
-        help='Output MP4 file name. e.g. output.mp4',
+        help='Output file name. e.g. output.mp4',
+    )
+    parser.add_argument(
+        '-cd',
+        '--output_codec_type',
+        type=str,
+        default='MP4V',
+        choices=CODEC_TYPES,
+        help='CODEC type. e.g. mp4v, MP4V, MP4S, DIV3, DIVX, IYUV, MJPG, XVID',
     )
     parser.add_argument(
         '-de',
@@ -132,7 +151,7 @@ def main():
     )
     parser.add_argument(
         '-ct',
-        '--mp4_colormap_type',
+        '--colormap_type',
         type=str,
         default='COLORMAP_JET',
         choices=['COLORMAP_JET', 'COLORMAP_HSV', 'COLORMAP_HOT', 'RAW'],
@@ -160,10 +179,11 @@ def main():
         ImageSaverNode(
             depth_topic_name=args.depth_topic_name,
             depth_encoding_type=args.depth_encoding_type,
-            mp4_colormap_type=args.mp4_colormap_type,
+            colormap_type=args.colormap_type,
             frame_size=args.frame_size,
             video_writer_fps=args.video_writer_fps,
-            output_mp4_file_name=args.output_mp4_file_name,
+            output_file_name=args.output_file_name,
+            output_codec_type=args.output_codec_type,
         )
     try:
         print(f'{GREEN}Start recording... Ctrl+C to end recording.{RESET}')

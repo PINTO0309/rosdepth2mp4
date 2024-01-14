@@ -17,6 +17,7 @@
                 "-ct", "COLORMAP_JET",
                 // "-ct", "COLORMAP_HSV",
                 // "-ct", "COLORMAP_HOT",
+                "-cd", "mp4v",
             ]
         }
     ]
