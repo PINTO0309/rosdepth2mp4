@@ -31,6 +31,7 @@ ros-${DISTRO}-image-pipeline
 pip install rosdepth2mp4
 ```
 ## 3. Usage
+```
 usage: rosimg2mp4 [-h]
 [-i DEPTH_TOPIC_NAME]
 [-o OUTPUT_FILE_NAME]
