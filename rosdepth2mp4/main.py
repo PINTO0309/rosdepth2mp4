@@ -124,7 +124,7 @@ def main():
         default='/camera/aligned_depth_to_color/image_raw',
         help=\
             'Depth topic name. ' +
-            'e.g. Realsense D435i: /camera/aligned_depth_to_color/image_raw, ZED2i: /zed2i/zed_node/depth/depth_registered',
+            'e.g. Realsense D435: /camera/aligned_depth_to_color/image_raw, ZED2i: /zed2i/zed_node/depth/depth_registered',
     )
     parser.add_argument(
         '-o',
@@ -147,7 +147,7 @@ def main():
         type=str,
         default='16UC1',
         choices=['16UC1', '32FC1'],
-        help='Depth encoding type. e.g. Realsense D435i: 16UC1, ZED2i: 32FC1',
+        help='Depth encoding type. e.g. Realsense D435: 16UC1, ZED2i: 32FC1',
     )
     parser.add_argument(
         '-ct',
