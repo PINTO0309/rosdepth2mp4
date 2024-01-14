@@ -47,7 +47,7 @@ options:
   -i DEPTH_TOPIC_NAME, --depth_topic_name DEPTH_TOPIC_NAME
     Depth topic name.
     e.g.
-    Realsense D435i: /camera/aligned_depth_to_color/image_raw
+    Realsense D435: /camera/aligned_depth_to_color/image_raw
     ZED2i: /zed2i/zed_node/depth/depth_registered
   -o OUTPUT_FILE_NAME, --output_file_name OUTPUT_FILE_NAME
     Output file name. e.g. output.mp4
@@ -57,7 +57,7 @@ options:
   -de {16UC1,32FC1}, --depth_encoding_type {16UC1,32FC1}
     Depth encoding type.
     e.g.
-    Realsense D435i: 16UC1, ZED2i: 32FC1
+    Realsense D435: 16UC1, ZED2i: 32FC1
   -ct {COLORMAP_JET,COLORMAP_HSV,COLORMAP_HOT,RAW}, \
       --colormap_type {COLORMAP_JET,COLORMAP_HSV,COLORMAP_HOT,RAW}
     COLORMAP type.
