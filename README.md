@@ -1,4 +1,4 @@
-# rosimg2mp4
+# rosdepth2mp4
 A simple tool to record ROS2 Image topics to mp4v, MP4V, MP4S, DIV3, DIVX, IYUV, MJPG, XVID. https://github.com/PINTO0309/simple-ros2-processing-tools
 
 [![Downloads](https://static.pepy.tech/personalized-badge/rosdepth2mp4?period=total&units=none&left_color=grey&right_color=brightgreen&left_text=Downloads)](https://pepy.tech/project/rosdepth2mp4)
@@ -32,7 +32,7 @@ pip install rosdepth2mp4
 ```
 ## 3. Usage
 ```
-usage: rosimg2mp4 [-h]
+usage: rosdepth2mp4 [-h]
 [-i DEPTH_TOPIC_NAME]
 [-o OUTPUT_FILE_NAME]
 [-cd {mp4v,MP4V,DIV3,DIVX,IYUV,MJPG,XVID}]
